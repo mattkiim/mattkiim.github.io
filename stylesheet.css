@@ -96,6 +96,14 @@ h2 {
   font-size: 22px;
 }
 
+/* .pubs {
+  background-color: rgb(255, 255, 255); 
+  padding: 10px; 
+  border-radius: 0px; 
+  margin-bottom: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+} */
+
 .papertitle {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 14px;
@@ -140,3 +148,4 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
