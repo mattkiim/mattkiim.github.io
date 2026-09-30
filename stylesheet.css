@@ -4,6 +4,7 @@
   --muted: #626b65;
   --accent: #29634f;
   --line: #dedfd6;
+  --highlight: #f3edcf;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 32px; }
@@ -42,6 +43,8 @@ h2 { font-size: 38px; line-height: 1.25; letter-spacing: -1.2px; margin: 0; }
 .section-note { color: var(--muted); font-size: 11px; padding-bottom: 5px; white-space: nowrap; }
 .research-intro { color: var(--muted); max-width: 680px; margin: 20px 0 34px; }
 .publication { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 30px; align-items: center; padding: 29px 0; border-top: 1px solid var(--line); }
+.paper-highlight { background: var(--highlight); color: inherit; padding: 2px 4px; border-radius: 3px; }
+.publication-highlighted { background: var(--highlight); box-shadow: -12px 0 var(--highlight), 12px 0 var(--highlight); }
 .publication-image { display: block; position: relative; aspect-ratio: 9 / 8; overflow: hidden; border-radius: 5px; }
 .publication-image img { position: absolute; width: var(--crop-width, 100%); max-width: none; height: auto; left: var(--crop-left, 0%); top: var(--crop-top, 0%); }
 /* Frame a single meaningful panel; retain the full original figures on disk. */
