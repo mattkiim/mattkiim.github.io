@@ -25,7 +25,7 @@ h1 { font-size: clamp(42px, 5.8vw, 64px); line-height: 1.1; letter-spacing: -2.8
 .affiliation { font-size: 14px; margin-bottom: 25px; }
 .intro-copy > p:not(.eyebrow):not(.availability) { color: var(--muted); }
 .intro-copy .hello { font-size: 19px; line-height: 1.55; color: var(--ink) !important; margin-bottom: 22px; }
-.portrait { display: block; transform: rotate(2deg); padding: 8px; background: #fff; border: 1px solid var(--line); border-radius: 5px; box-shadow: 0 10px 30px #26382b0b; }
+.portrait { display: block; transform: rotate(2deg); }
 .portrait img { width: 100%; height: 294px; object-fit: cover; border-radius: 2px; }
 .availability { display: inline-flex; align-items: center; gap: 9px; background: #e9eee4; color: #35513b; padding: 7px 12px; border-radius: 5px; font-size: 12px; margin: 6px 0 21px; }
 .availability > span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
@@ -41,10 +41,16 @@ h1 { font-size: clamp(42px, 5.8vw, 64px); line-height: 1.1; letter-spacing: -2.8
 h2 { font-size: 38px; line-height: 1.25; letter-spacing: -1.2px; margin: 0; }
 .section-note { color: var(--muted); font-size: 11px; padding-bottom: 5px; white-space: nowrap; }
 .research-intro { color: var(--muted); max-width: 680px; margin: 20px 0 34px; }
-.publication { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 30px; align-items: center; padding: 29px 0; border-top: 1px solid var(--line); }
-.publication-image { display: flex; align-items: center; justify-content: center; background: white; border: 1px solid #e8e8df; border-radius: 7px; overflow: hidden; height: 162px; padding: 12px; transition: border-color .2s, box-shadow .2s; }
-.publication-image:hover { border-color: #9bad9b; box-shadow: 0 4px 16px #26382b0a; }
-.publication-image img { width: 100%; height: 100%; object-fit: contain; }
+.publication { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 30px; align-items: center; padding: 29px 0; border-top: 1px solid var(--line); }
+.publication-image { display: block; position: relative; aspect-ratio: 9 / 8; overflow: hidden; border-radius: 5px; }
+.publication-image img { position: absolute; width: var(--crop-width, 100%); max-width: none; height: auto; left: var(--crop-left, 0%); top: var(--crop-top, 0%); }
+/* Frame a single meaningful panel; retain the full original figures on disk. */
+.crop-fingr { --crop-width: 562.5%; --crop-left: -176.56%; --crop-top: -40%; }
+.crop-ssm { --crop-width: 341.33%; --crop-left: -182.17%; --crop-top: -22%; }
+.publication-image .crop-multisafe,
+.publication-image .crop-rbn { width: 100%; height: 100%; left: 0; top: 0; object-fit: contain; transform: scale(1.04); }
+.publication-image .crop-multisafe { transform: translateX(-2px) scale(1.12); }
+.crop-koopman { --crop-width: 107.26%; --crop-left: -5.31%; --crop-top: -12.62%; }
 .venue { font-size: 10px; font-weight: 650; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin: 0 0 8px; }
 .venue-submitted { color: var(--muted); }
 h3 { font-size: 18px; line-height: 1.45; letter-spacing: -.3px; font-weight: 600; margin: 0 0 8px; }
@@ -64,14 +70,13 @@ footer > span { color: var(--ink); font-weight: 600; }
   .intro { grid-template-columns: minmax(0, 1fr) 190px; gap: 32px; padding: 55px 0; }
   .portrait img { height: 232px; }
   .publication { grid-template-columns: 180px minmax(0, 1fr); gap: 24px; }
-  .publication-image { height: 145px; }
 }
 @media (max-width: 600px) {
   .page { padding: 0 22px; }
   .site-header { padding: 19px 0; }
   .site-header nav { gap: 20px; font-size: 12px; }
   .intro { display: flex; flex-direction: column; align-items: start; gap: 30px; padding: 35px 0 42px; }
-  .portrait { order: -1; width: 132px; padding: 5px; }
+  .portrait { order: -1; width: 132px; }
   .portrait img { height: 145px; }
   h1 { font-size: 47px; }
   .intro-copy .hello { font-size: 18px; }
@@ -79,8 +84,7 @@ footer > span { color: var(--ink); font-weight: 600; }
   .eyebrow { font-size: 10px; letter-spacing: 1.4px; }
   h2 { font-size: 33px; }
   .publication { grid-template-columns: 1fr; gap: 20px; padding: 25px 0; }
-  .publication-image { width: 100%; height: 190px; padding: 18px; }
-  .publication-image img { max-width: 350px; }
+  .publication-image { width: 180px; max-width: 100%; }
   .publication-links a { padding: 5px 0; }
   footer { flex-wrap: wrap; margin-top: 25px; }
   footer p { order: 3; width: 100%; }
